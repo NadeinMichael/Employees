@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const routers = require('./routes/');
 
 require('dotenv').config();
 
@@ -12,6 +13,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/api/user', require('./routes/users'));
+app.use('/api', routers);
 
 module.exports = app;
